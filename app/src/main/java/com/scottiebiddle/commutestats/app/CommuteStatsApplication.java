@@ -1,13 +1,12 @@
-package com.scottiebiddle.commutestats;
+package com.scottiebiddle.commutestats.app;
 
 import android.app.Application;
 
 import com.scottiebiddle.commutestats.db.DatabaseModule;
 
 /**
- * Created by scottie on 1/9/17.
+ * Application subclass for CommuteStats
  */
-
 public class CommuteStatsApplication extends Application {
 
     private AppComponent appComponent;

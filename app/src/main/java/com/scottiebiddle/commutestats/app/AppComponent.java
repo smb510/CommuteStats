@@ -1,5 +1,6 @@
-package com.scottiebiddle.commutestats;
+package com.scottiebiddle.commutestats.app;
 
+import com.scottiebiddle.commutestats.MainActivity;
 import com.scottiebiddle.commutestats.db.DatabaseModule;
 
 import javax.inject.Singleton;
@@ -7,7 +8,7 @@ import javax.inject.Singleton;
 import dagger.Component;
 
 /**
- * Created by scottie on 1/9/17.
+ * Application Component
  */
 @Singleton
 @Component(modules = {AppModule.class, DatabaseModule.class})

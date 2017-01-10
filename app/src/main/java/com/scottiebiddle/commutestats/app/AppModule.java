@@ -1,4 +1,4 @@
-package com.scottiebiddle.commutestats;
+package com.scottiebiddle.commutestats.app;
 
 import android.app.Application;
 

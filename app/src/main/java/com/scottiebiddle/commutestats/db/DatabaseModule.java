@@ -1,6 +1,7 @@
 package com.scottiebiddle.commutestats.db;
 
 import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 
 import javax.inject.Singleton;
 
@@ -8,7 +9,7 @@ import dagger.Module;
 import dagger.Provides;
 
 /**
- * Created by scottie on 1/9/17.
+ * Module providing DB-Scoped Dependencies.
  */
 @Module
 public class DatabaseModule {
@@ -23,6 +24,13 @@ public class DatabaseModule {
     @Singleton
     CommuteStatsDb provideCommuteStatsDb() {
         return new CommuteStatsDb(appContext);
+    }
+
+
+    @Provides
+    @Singleton
+    SQLiteDatabase provideReadableDatabase(CommuteStatsDb commuteStatsDb) {
+        return commuteStatsDb.getReadableDatabase();
     }
 
 
