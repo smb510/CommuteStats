@@ -23,20 +23,18 @@ public final class CommuteStatsDb extends SQLiteOpenHelper {
   public static final String ROUTES_TABLE = "routes";
 
   // Common Keys
-  private static final String KEY_ID = "id";
+  static final String KEY_ID = "id";
 
   //Commutes Table columns
   private static final String KEY_START_TIME = "commute_start_time";
   private static final String KEY_END_TIME = "commute_end_time";
   private static final String KEY_ROUTE = "route";
-  private static final String KEY_FROM_STOP = "from_stop";
-  private static final String KEY_TO_STOP = "to_stop";
 
 
   //Stops Table columns
-  private static final String KEY_STOP_NAME = "stop_name";
-  private static final String KEY_STOP_LATITUDE = "stop_latitude";
-  private static final String KEY_STOP_LONGITUDE = "stop_longitude";
+  static final String KEY_STOP_NAME = "stop_name";
+  static final String KEY_STOP_LATITUDE = "stop_latitude";
+  static final String KEY_STOP_LONGITUDE = "stop_longitude";
 
   //Routes table column
   private static final String KEY_ROUTE_NAME = "route_name";
