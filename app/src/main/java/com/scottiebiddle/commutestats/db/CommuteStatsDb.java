@@ -58,6 +58,8 @@ public final class CommuteStatsDb extends SQLiteOpenHelper {
 
   @Override
   public void onCreate(SQLiteDatabase sqLiteDatabase) {
+    sqLiteDatabase.execSQL(CREATE_STOPS_TABLE);
+    sqLiteDatabase.execSQL(CREATE_ROUTES_TABLE);
     sqLiteDatabase.execSQL(CREATE_COMMUTES_TABLE);
   }
 
@@ -82,13 +84,15 @@ public final class CommuteStatsDb extends SQLiteOpenHelper {
           ")";
 
   private static final String CREATE_ROUTES_TABLE =
-      "CREATE_TABLE " + ROUTES_TABLE +
+      "CREATE TABLE " + ROUTES_TABLE +
           "(" +
           KEY_ID + " INTEGER PRIMARY KEY, " +
           KEY_ROUTE_NAME + " TEXT, " +
+          KEY_ROUTE_START + " INTEGER, " +
+          KEY_ROUTE_END + " INTEGER, " +
+          KEY_ROUTE_OPPOSITE + " INTEGER, " +
           "FOREIGN KEY(" + KEY_ROUTE_START + ") REFERENCES " + STOPS_TABLE + "(" + KEY_ID + ")," +
-          "FOREIGN KEY(" + KEY_ROUTE_END + ") REFERENCES " + STOPS_TABLE + "(" + KEY_ID + ")," +
-          KEY_ROUTE_OPPOSITE + " INTEGER" +
+          "FOREIGN KEY(" + KEY_ROUTE_END + ") REFERENCES " + STOPS_TABLE + "(" + KEY_ID + ")" +
           ")";
 
 
@@ -98,6 +102,7 @@ public final class CommuteStatsDb extends SQLiteOpenHelper {
           KEY_ID + " INTEGER PRIMARY KEY, " +
           KEY_START_TIME + " INTEGER, " +
           KEY_END_TIME + " INTEGER, " +
+          KEY_ROUTE + " INTEGER, " +
           "FOREIGN KEY(" + KEY_ROUTE  + ") REFERENCES " + ROUTES_TABLE+ "(" + KEY_ID + ")" +
           ")";
 
